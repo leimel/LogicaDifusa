@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LogicaDifusa.Funciones;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,16 @@ namespace LogicaDifusa
 {
     public partial class Form1 : Form
     {
+        private static Form1 Form;
+
+        public static Form1 getInstance()
+        {
+            if (Form == null || Form.IsDisposed)
+            {
+                Form = new Form1();
+            }
+            return Form;
+        }
         public Form1()
         {
             InitializeComponent();
@@ -19,7 +30,7 @@ namespace LogicaDifusa
 
         private void c_TextChanged(object sender, EventArgs e)
         {
-
+            validarvacio(TraC);
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -61,9 +72,9 @@ namespace LogicaDifusa
 
         private void trapezoidal_CheckedChanged(object sender, EventArgs e)
         {
-            if(valoresTra.Visible==true) valoresTra.Visible = false;
+            if (valoresTra.Visible == true) valoresTra.Visible = false;
             else valoresTra.Visible = true;
-            
+
         }
 
         private void bell_CheckedChanged(object sender, EventArgs e)
@@ -80,24 +91,204 @@ namespace LogicaDifusa
 
         private void graficar_Click(object sender, EventArgs e)
         {
-            if (valoresTri.Visible == true)
+            Grafico.Series[0].Points.Clear();
+            dataGridView1.Rows.Clear();
+            if (triangular.Checked == true)
             {
-                if()
+                Triangular funtri = Triangular.CREATE(int.Parse(TriInferior.Text), int.Parse(TriSuperior.Text), Convert.ToDouble(TriA.Text), Convert.ToDouble(TriB.Text), Convert.ToDouble(TriC.Text));
+                funtri.graficar();
             }
-            if (valoresTra.Visible == true)
+            if (trapezoidal.Checked == true)
             {
-
+                Trapezoidal funtra = Trapezoidal.CREATE(int.Parse(TraInferior.Text), int.Parse(TraSuperior.Text), Convert.ToDouble(TraA.Text), Convert.ToDouble(TraB.Text), Convert.ToDouble(TraC.Text), Convert.ToDouble(TraD.Text));
+                funtra.graficar();
             }
-            if(valoresGa.Visible == true)
+            if (gaussiana.Checked == true)
             {
-
+                Gaussiana funga = Gaussiana.CREATE(int.Parse(GaInferior.Text), int.Parse(GaSuperior.Text), Convert.ToDouble(GaA.Text), Convert.ToDouble(GaB.Text));
+                funga.graficar();
             }
-            if (valoresBe.Visible == true)
+            if (bell.Checked == true)
             {
-
+                Bell funbe = Bell.CREATE(int.Parse(BeInferior.Text), int.Parse(BeSuperior.Text), Convert.ToDouble(BeA.Text), Convert.ToDouble(BeB.Text), Convert.ToDouble(BeC.Text));
+                funbe.graficar();
             }
-            if (valoresSi.Visible == true)
+            if (sigmoide.Checked == true)
+            {
+                Sigmoide funsig = Sigmoide.CREATE(int.Parse(SigInferior.Text), int.Parse(SigSuperior.Text), Convert.ToDouble(SigA.Text), Convert.ToDouble(SigB.Text));
+                funsig.graficar();
+            }
 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TriA_TextChanged(object sender, EventArgs e)
+        {
+            validarvacio(TriA);
+        }
+
+        private void validarvacio(TextBox cuadro)
+        {
+            if (String.IsNullOrWhiteSpace(cuadro.Text))
+            {
+                cuadro.Text = "0";
+            }
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+        private void TriA_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            descartarletra(e);
+        }
+
+        private void TriB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            descartarletra(e);
+        }
+        private void descartarletra(KeyPressEventArgs e)
+        {
+
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TriC_TextChanged(object sender, EventArgs e)
+        {
+            validarvacio(TriC);
+        }
+
+        private void TriC_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            descartarletra(e);
+        }
+
+        private void TraA_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            descartarletra(e);
+        }
+
+        private void TraB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            descartarletra(e);
+        }
+
+        private void TraC_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            descartarletra(e);
+        }
+
+        private void TraD_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            descartarletra(e);
+        }
+
+        private void GaA_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            descartarletra(e);
+        }
+
+        private void GaB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            descartarletra(e);
+        }
+
+        private void BeA_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            descartarletra(e);
+        }
+
+        private void BeB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            descartarletra(e);
+        }
+
+        private void BeC_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            descartarletra(e);
+        }
+
+        private void SigA_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            descartarletra(e);
+        }
+
+        private void SigB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            descartarletra(e);
+        }
+
+        private void TriB_TextChanged(object sender, EventArgs e)
+        {
+            validarvacio(TriB);
+        }
+
+        private void TraA_TextChanged(object sender, EventArgs e)
+        {
+            validarvacio(TraA);
+        }
+
+        private void TraB_TextChanged(object sender, EventArgs e)
+        {
+            validarvacio(TraB);
+        }
+
+        private void TraD_TextChanged(object sender, EventArgs e)
+        {
+            validarvacio(TraD);
+        }
+
+        private void GaA_TextChanged(object sender, EventArgs e)
+        {
+            validarvacio(GaA);
+        }
+
+        private void GaB_TextChanged(object sender, EventArgs e)
+        {
+            validarvacio(GaB);
+        }
+
+        private void BeA_TextChanged(object sender, EventArgs e)
+        {
+            validarvacio(BeA);
+        }
+
+        private void BeB_TextChanged(object sender, EventArgs e)
+        {
+            validarvacio(BeB);
+        }
+
+        private void BeC_TextChanged(object sender, EventArgs e)
+        {
+            validarvacio(BeC);
+        }
+
+        private void SigA_TextChanged(object sender, EventArgs e)
+        {
+            validarvacio(SigA);
+        }
+
+        private void SigB_TextChanged(object sender, EventArgs e)
+        {
+            validarvacio(SigB);
         }
     }
 }

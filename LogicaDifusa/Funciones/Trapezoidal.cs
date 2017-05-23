@@ -6,53 +6,63 @@ using System.Threading.Tasks;
 
 namespace LogicaDifusa.Funciones
 {
-    class Triangular
+    class Trapezoidal
     {
+
         private int limInferior { get; set; }
         private int limSuperior { get; set; }
         private double a { get; set; }
         private double b { get; set; }
+        private double d { get; set; }
         private double c { get; set; }
 
-        private Triangular(int lin,int lsup,double a,double b,double c)
+        private Trapezoidal(int lin, int lsup, double a, double b, double c, double d)
         {
             this.limInferior = lin;
             this.limSuperior = lsup;
             this.a = a;
             this.b = b;
             this.c = c;
+            this.d = d;
         }
-        public static Triangular CREATE(int lin, int lsup, double a, double b, double c)
+        public static Trapezoidal CREATE(int lin, int lsup, double a, double b, double c, double d)
         {
-            if (lin >= 0 && lsup <= 100 && lin < lsup && a<b && b<c)
+            if (lin >= 0 && lsup <= 100 && lin < lsup && a < b && b < c && c<d)
             {
-                return new Triangular(lin, lsup, a, b, c);
+                return new Trapezoidal(lin, lsup, a, b, c, d);
             }
             return null;
         }
 
-       
+
         public void graficar()
         {
             Form1 form = Form1.getInstance();
             for (int x = limInferior; x <= limSuperior; ++x)
             {
-                if (x <= a || x > c)
+                if (x <= a || x > d)
                 {
                     form.Grafico.Series[0].Points.AddXY(x, 0);
                     form.dataGridView1.Rows.Add(x, 0);
+                }
+                else if (x > b && x <= c)
+                {
+                    form.Grafico.Series[0].Points.AddXY(x, 1);
+                    form.dataGridView1.Rows.Add(x, 1);
                 }
                 else if (x > a && x <= b)
                 {
                     form.Grafico.Series[0].Points.AddXY(x, (x - a) / (b - a));
                     form.dataGridView1.Rows.Add(x, (x - a) / (b - a));
                 }
-                else if (x > b && x <= c)
+                else if (x > c && x <= d)
                 {
-                    form.Grafico.Series[0].Points.AddXY(x, (c - x) / (c - b));
-                    form.dataGridView1.Rows.Add(x, (c - x) / (c - b));
+                    form.Grafico.Series[0].Points.AddXY(x, (d - x) / (d - c));
+                    form.dataGridView1.Rows.Add(x, (d - x) / (d - c));
                 }
+                
             }
         }
     }
 }
+

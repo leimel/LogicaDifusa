@@ -53,6 +53,10 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Funciones\Bell.cs" />
+    <Compile Include="Funciones\Gaussiana.cs" />
+    <Compile Include="Funciones\Sigmoide.cs" />
+    <Compile Include="Funciones\Trapezoidal.cs" />
     <Compile Include="Funciones\Triangular.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

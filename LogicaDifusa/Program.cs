@@ -16,7 +16,7 @@ namespace LogicaDifusa
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(Form1.getInstance());
         }
     }
 }

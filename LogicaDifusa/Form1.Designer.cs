@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea31 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend31 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series31 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.triangular = new System.Windows.Forms.CheckBox();
             this.trapezoidal = new System.Windows.Forms.CheckBox();
             this.gaussiana = new System.Windows.Forms.CheckBox();
@@ -52,7 +55,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.TriInferior = new System.Windows.Forms.TextBox();
             this.TriSuperior = new System.Windows.Forms.TextBox();
-            this.TraInferio = new System.Windows.Forms.TextBox();
+            this.TraInferior = new System.Windows.Forms.TextBox();
             this.TraSuperior = new System.Windows.Forms.TextBox();
             this.GaInferior = new System.Windows.Forms.TextBox();
             this.GaSuperior = new System.Windows.Forms.TextBox();
@@ -88,11 +91,23 @@
             this.valoresSi = new System.Windows.Forms.GroupBox();
             this.valoresGa = new System.Windows.Forms.GroupBox();
             this.graficar = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.Grafico = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valoresTri.SuspendLayout();
             this.valoresTra.SuspendLayout();
             this.valoresBe.SuspendLayout();
             this.valoresSi.SuspendLayout();
             this.valoresGa.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Grafico)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // triangular
@@ -162,6 +177,10 @@
             this.TriA.Size = new System.Drawing.Size(43, 20);
             this.TriA.TabIndex = 5;
             this.TriA.Tag = "";
+            this.TriA.Text = "0";
+            this.TriA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TriA.TextChanged += new System.EventHandler(this.TriA_TextChanged);
+            this.TriA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TriA_KeyPress);
             // 
             // TriB
             // 
@@ -169,6 +188,10 @@
             this.TriB.Name = "TriB";
             this.TriB.Size = new System.Drawing.Size(42, 20);
             this.TriB.TabIndex = 6;
+            this.TriB.Text = "0";
+            this.TriB.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TriB.TextChanged += new System.EventHandler(this.TriB_TextChanged);
+            this.TriB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TriB_KeyPress);
             // 
             // TriC
             // 
@@ -176,6 +199,10 @@
             this.TriC.Name = "TriC";
             this.TriC.Size = new System.Drawing.Size(42, 20);
             this.TriC.TabIndex = 7;
+            this.TriC.Text = "0";
+            this.TriC.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TriC.TextChanged += new System.EventHandler(this.TriC_TextChanged);
+            this.TriC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TriC_KeyPress);
             // 
             // TraA
             // 
@@ -183,6 +210,10 @@
             this.TraA.Name = "TraA";
             this.TraA.Size = new System.Drawing.Size(43, 20);
             this.TraA.TabIndex = 8;
+            this.TraA.Text = "0";
+            this.TraA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TraA.TextChanged += new System.EventHandler(this.TraA_TextChanged);
+            this.TraA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TraA_KeyPress);
             // 
             // TraB
             // 
@@ -190,6 +221,10 @@
             this.TraB.Name = "TraB";
             this.TraB.Size = new System.Drawing.Size(42, 20);
             this.TraB.TabIndex = 9;
+            this.TraB.Text = "0";
+            this.TraB.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TraB.TextChanged += new System.EventHandler(this.TraB_TextChanged);
+            this.TraB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TraB_KeyPress);
             // 
             // TraC
             // 
@@ -197,7 +232,10 @@
             this.TraC.Name = "TraC";
             this.TraC.Size = new System.Drawing.Size(42, 20);
             this.TraC.TabIndex = 10;
+            this.TraC.Text = "0";
+            this.TraC.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.TraC.TextChanged += new System.EventHandler(this.c_TextChanged);
+            this.TraC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TraC_KeyPress);
             // 
             // TraD
             // 
@@ -205,6 +243,10 @@
             this.TraD.Name = "TraD";
             this.TraD.Size = new System.Drawing.Size(40, 20);
             this.TraD.TabIndex = 11;
+            this.TraD.Text = "0";
+            this.TraD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TraD.TextChanged += new System.EventHandler(this.TraD_TextChanged);
+            this.TraD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TraD_KeyPress);
             // 
             // label1
             // 
@@ -305,6 +347,8 @@
             this.TriInferior.Name = "TriInferior";
             this.TriInferior.Size = new System.Drawing.Size(42, 20);
             this.TriInferior.TabIndex = 29;
+            this.TriInferior.Text = "0";
+            this.TriInferior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.TriInferior.TextChanged += new System.EventHandler(this.textBox14_TextChanged);
             // 
             // TriSuperior
@@ -313,13 +357,15 @@
             this.TriSuperior.Name = "TriSuperior";
             this.TriSuperior.Size = new System.Drawing.Size(42, 20);
             this.TriSuperior.TabIndex = 30;
+            this.TriSuperior.Text = "100";
+            this.TriSuperior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // TraInferio
+            // TraInferior
             // 
-            this.TraInferio.Location = new System.Drawing.Point(52, 9);
-            this.TraInferio.Name = "TraInferio";
-            this.TraInferio.Size = new System.Drawing.Size(42, 20);
-            this.TraInferio.TabIndex = 31;
+            this.TraInferior.Location = new System.Drawing.Point(52, 9);
+            this.TraInferior.Name = "TraInferior";
+            this.TraInferior.Size = new System.Drawing.Size(42, 20);
+            this.TraInferior.TabIndex = 31;
             // 
             // TraSuperior
             // 
@@ -382,7 +428,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(81, 51);
+            this.label12.Location = new System.Drawing.Point(98, 51);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(16, 13);
             this.label12.TabIndex = 40;
@@ -436,7 +482,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(123, 62);
+            this.label21.Location = new System.Drawing.Point(136, 62);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(16, 13);
             this.label21.TabIndex = 51;
@@ -457,6 +503,10 @@
             this.GaB.Name = "GaB";
             this.GaB.Size = new System.Drawing.Size(42, 20);
             this.GaB.TabIndex = 49;
+            this.GaB.Text = "0";
+            this.GaB.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.GaB.TextChanged += new System.EventHandler(this.GaB_TextChanged);
+            this.GaB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.GaB_KeyPress);
             // 
             // GaA
             // 
@@ -464,6 +514,10 @@
             this.GaA.Name = "GaA";
             this.GaA.Size = new System.Drawing.Size(43, 20);
             this.GaA.TabIndex = 48;
+            this.GaA.Text = "0";
+            this.GaA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.GaA.TextChanged += new System.EventHandler(this.GaA_TextChanged);
+            this.GaA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.GaA_KeyPress);
             // 
             // label20
             // 
@@ -498,6 +552,10 @@
             this.BeC.Name = "BeC";
             this.BeC.Size = new System.Drawing.Size(42, 20);
             this.BeC.TabIndex = 54;
+            this.BeC.Text = "0";
+            this.BeC.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.BeC.TextChanged += new System.EventHandler(this.BeC_TextChanged);
+            this.BeC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BeC_KeyPress);
             // 
             // BeB
             // 
@@ -505,6 +563,10 @@
             this.BeB.Name = "BeB";
             this.BeB.Size = new System.Drawing.Size(42, 20);
             this.BeB.TabIndex = 53;
+            this.BeB.Text = "0";
+            this.BeB.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.BeB.TextChanged += new System.EventHandler(this.BeB_TextChanged);
+            this.BeB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BeB_KeyPress);
             // 
             // BeA
             // 
@@ -513,6 +575,10 @@
             this.BeA.Size = new System.Drawing.Size(43, 20);
             this.BeA.TabIndex = 52;
             this.BeA.Tag = "";
+            this.BeA.Text = "0";
+            this.BeA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.BeA.TextChanged += new System.EventHandler(this.BeA_TextChanged);
+            this.BeA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BeA_KeyPress);
             // 
             // label25
             // 
@@ -539,6 +605,10 @@
             this.SigB.Name = "SigB";
             this.SigB.Size = new System.Drawing.Size(42, 20);
             this.SigB.TabIndex = 59;
+            this.SigB.Text = "0";
+            this.SigB.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.SigB.TextChanged += new System.EventHandler(this.SigB_TextChanged);
+            this.SigB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SigB_KeyPress);
             // 
             // SigA
             // 
@@ -546,6 +616,10 @@
             this.SigA.Name = "SigA";
             this.SigA.Size = new System.Drawing.Size(43, 20);
             this.SigA.TabIndex = 58;
+            this.SigA.Text = "0";
+            this.SigA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.SigA.TextChanged += new System.EventHandler(this.SigA_TextChanged);
+            this.SigA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SigA_KeyPress);
             // 
             // label27
             // 
@@ -579,7 +653,7 @@
             // 
             // valoresTra
             // 
-            this.valoresTra.Controls.Add(this.TraInferio);
+            this.valoresTra.Controls.Add(this.TraInferior);
             this.valoresTra.Controls.Add(this.TraA);
             this.valoresTra.Controls.Add(this.TraB);
             this.valoresTra.Controls.Add(this.TraC);
@@ -665,11 +739,90 @@
             this.graficar.UseVisualStyleBackColor = true;
             this.graficar.Click += new System.EventHandler(this.graficar_Click);
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(455, 26);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(805, 517);
+            this.tabControl1.TabIndex = 68;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.Grafico);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(797, 491);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Grafica";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // Grafico
+            // 
+            chartArea31.CursorX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea31.CursorX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea31.CursorY.Interval = 0.1D;
+            chartArea31.CursorY.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea31.CursorY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea31.Name = "ChartArea1";
+            this.Grafico.ChartAreas.Add(chartArea31);
+            legend31.Name = "Legend1";
+            this.Grafico.Legends.Add(legend31);
+            this.Grafico.Location = new System.Drawing.Point(7, 7);
+            this.Grafico.Name = "Grafico";
+            series31.ChartArea = "ChartArea1";
+            series31.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series31.Legend = "Legend1";
+            series31.Name = "Series1";
+            this.Grafico.Series.Add(series31);
+            this.Grafico.Size = new System.Drawing.Size(782, 478);
+            this.Grafico.TabIndex = 0;
+            this.Grafico.Text = "chart1";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(797, 491);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Valores";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2});
+            this.dataGridView1.Location = new System.Drawing.Point(7, 7);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(240, 478);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.Frozen = true;
+            this.Column1.HeaderText = "X";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Y";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1260, 555);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.graficar);
             this.Controls.Add(this.valoresSi);
             this.Controls.Add(this.valoresGa);
@@ -684,6 +837,8 @@
             this.Controls.Add(this.triangular);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.valoresTri.ResumeLayout(false);
             this.valoresTri.PerformLayout();
             this.valoresTra.ResumeLayout(false);
@@ -694,6 +849,11 @@
             this.valoresSi.PerformLayout();
             this.valoresGa.ResumeLayout(false);
             this.valoresGa.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Grafico)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -725,7 +885,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox TriInferior;
         private System.Windows.Forms.TextBox TriSuperior;
-        private System.Windows.Forms.TextBox TraInferio;
+        private System.Windows.Forms.TextBox TraInferior;
         private System.Windows.Forms.TextBox TraSuperior;
         private System.Windows.Forms.TextBox GaInferior;
         private System.Windows.Forms.TextBox GaSuperior;
@@ -761,6 +921,13 @@
         private System.Windows.Forms.GroupBox valoresSi;
         private System.Windows.Forms.GroupBox valoresGa;
         private System.Windows.Forms.Button graficar;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        public System.Windows.Forms.DataVisualization.Charting.Chart Grafico;
+        public System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 
