@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea31 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend31 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series31 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.triangular = new System.Windows.Forms.CheckBox();
             this.trapezoidal = new System.Windows.Forms.CheckBox();
             this.gaussiana = new System.Windows.Forms.CheckBox();
@@ -53,16 +53,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.TriInferior = new System.Windows.Forms.TextBox();
-            this.TriSuperior = new System.Windows.Forms.TextBox();
-            this.TraInferior = new System.Windows.Forms.TextBox();
-            this.TraSuperior = new System.Windows.Forms.TextBox();
-            this.GaInferior = new System.Windows.Forms.TextBox();
-            this.GaSuperior = new System.Windows.Forms.TextBox();
-            this.BeInferior = new System.Windows.Forms.TextBox();
-            this.BeSuperior = new System.Windows.Forms.TextBox();
-            this.SigInferior = new System.Windows.Forms.TextBox();
-            this.SigSuperior = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -98,6 +88,16 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TriSup = new System.Windows.Forms.NumericUpDown();
+            this.TriInf = new System.Windows.Forms.NumericUpDown();
+            this.TraInferior = new System.Windows.Forms.NumericUpDown();
+            this.GaInferior = new System.Windows.Forms.NumericUpDown();
+            this.BeInferior = new System.Windows.Forms.NumericUpDown();
+            this.SigInferior = new System.Windows.Forms.NumericUpDown();
+            this.TraSuperior = new System.Windows.Forms.NumericUpDown();
+            this.GaSuperior = new System.Windows.Forms.NumericUpDown();
+            this.BeSuperior = new System.Windows.Forms.NumericUpDown();
+            this.SigSuperior = new System.Windows.Forms.NumericUpDown();
             this.valoresTri.SuspendLayout();
             this.valoresTra.SuspendLayout();
             this.valoresBe.SuspendLayout();
@@ -108,6 +108,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.Grafico)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TriSup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TriInf)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TraInferior)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GaInferior)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BeInferior)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SigInferior)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TraSuperior)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GaSuperior)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BeSuperior)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SigSuperior)).BeginInit();
             this.SuspendLayout();
             // 
             // triangular
@@ -181,6 +191,7 @@
             this.TriA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.TriA.TextChanged += new System.EventHandler(this.TriA_TextChanged);
             this.TriA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TriA_KeyPress);
+            this.TriA.Leave += new System.EventHandler(this.TriA_Leave);
             // 
             // TriB
             // 
@@ -260,7 +271,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(125, 22);
+            this.label2.Location = new System.Drawing.Point(136, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 13);
             this.label2.TabIndex = 20;
@@ -279,7 +290,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(144, 16);
+            this.label4.Location = new System.Drawing.Point(137, 16);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 13);
             this.label4.TabIndex = 22;
@@ -288,7 +299,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 29);
+            this.label5.Location = new System.Drawing.Point(8, 28);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(39, 13);
             this.label5.TabIndex = 23;
@@ -297,7 +308,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(123, 28);
+            this.label6.Location = new System.Drawing.Point(138, 28);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 13);
             this.label6.TabIndex = 24;
@@ -316,7 +327,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(111, 24);
+            this.label8.Location = new System.Drawing.Point(137, 24);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(46, 13);
             this.label8.TabIndex = 26;
@@ -335,86 +346,11 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(109, 19);
+            this.label10.Location = new System.Drawing.Point(135, 19);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(46, 13);
             this.label10.TabIndex = 28;
             this.label10.Text = "Superior";
-            // 
-            // TriInferior
-            // 
-            this.TriInferior.Location = new System.Drawing.Point(56, 20);
-            this.TriInferior.Name = "TriInferior";
-            this.TriInferior.Size = new System.Drawing.Size(42, 20);
-            this.TriInferior.TabIndex = 29;
-            this.TriInferior.Text = "0";
-            this.TriInferior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TriInferior.TextChanged += new System.EventHandler(this.textBox14_TextChanged);
-            // 
-            // TriSuperior
-            // 
-            this.TriSuperior.Location = new System.Drawing.Point(177, 20);
-            this.TriSuperior.Name = "TriSuperior";
-            this.TriSuperior.Size = new System.Drawing.Size(42, 20);
-            this.TriSuperior.TabIndex = 30;
-            this.TriSuperior.Text = "100";
-            this.TriSuperior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // TraInferior
-            // 
-            this.TraInferior.Location = new System.Drawing.Point(52, 9);
-            this.TraInferior.Name = "TraInferior";
-            this.TraInferior.Size = new System.Drawing.Size(42, 20);
-            this.TraInferior.TabIndex = 31;
-            // 
-            // TraSuperior
-            // 
-            this.TraSuperior.Location = new System.Drawing.Point(207, 13);
-            this.TraSuperior.Name = "TraSuperior";
-            this.TraSuperior.Size = new System.Drawing.Size(42, 20);
-            this.TraSuperior.TabIndex = 32;
-            // 
-            // GaInferior
-            // 
-            this.GaInferior.Location = new System.Drawing.Point(60, 25);
-            this.GaInferior.Name = "GaInferior";
-            this.GaInferior.Size = new System.Drawing.Size(42, 20);
-            this.GaInferior.TabIndex = 33;
-            // 
-            // GaSuperior
-            // 
-            this.GaSuperior.Location = new System.Drawing.Point(175, 25);
-            this.GaSuperior.Name = "GaSuperior";
-            this.GaSuperior.Size = new System.Drawing.Size(42, 20);
-            this.GaSuperior.TabIndex = 34;
-            // 
-            // BeInferior
-            // 
-            this.BeInferior.Location = new System.Drawing.Point(46, 21);
-            this.BeInferior.Name = "BeInferior";
-            this.BeInferior.Size = new System.Drawing.Size(42, 20);
-            this.BeInferior.TabIndex = 35;
-            // 
-            // BeSuperior
-            // 
-            this.BeSuperior.Location = new System.Drawing.Point(172, 21);
-            this.BeSuperior.Name = "BeSuperior";
-            this.BeSuperior.Size = new System.Drawing.Size(42, 20);
-            this.BeSuperior.TabIndex = 36;
-            // 
-            // SigInferior
-            // 
-            this.SigInferior.Location = new System.Drawing.Point(51, 16);
-            this.SigInferior.Name = "SigInferior";
-            this.SigInferior.Size = new System.Drawing.Size(42, 20);
-            this.SigInferior.TabIndex = 37;
-            // 
-            // SigSuperior
-            // 
-            this.SigSuperior.Location = new System.Drawing.Point(170, 16);
-            this.SigSuperior.Name = "SigSuperior";
-            this.SigSuperior.Size = new System.Drawing.Size(42, 20);
-            this.SigSuperior.TabIndex = 38;
             // 
             // label11
             // 
@@ -633,13 +569,13 @@
             // 
             // valoresTri
             // 
-            this.valoresTri.Controls.Add(this.TriInferior);
+            this.valoresTri.Controls.Add(this.TriInf);
+            this.valoresTri.Controls.Add(this.TriSup);
             this.valoresTri.Controls.Add(this.TriA);
             this.valoresTri.Controls.Add(this.TriB);
             this.valoresTri.Controls.Add(this.TriC);
             this.valoresTri.Controls.Add(this.label1);
             this.valoresTri.Controls.Add(this.label2);
-            this.valoresTri.Controls.Add(this.TriSuperior);
             this.valoresTri.Controls.Add(this.label11);
             this.valoresTri.Controls.Add(this.label12);
             this.valoresTri.Controls.Add(this.label13);
@@ -653,6 +589,7 @@
             // 
             // valoresTra
             // 
+            this.valoresTra.Controls.Add(this.TraSuperior);
             this.valoresTra.Controls.Add(this.TraInferior);
             this.valoresTra.Controls.Add(this.TraA);
             this.valoresTra.Controls.Add(this.TraB);
@@ -660,7 +597,6 @@
             this.valoresTra.Controls.Add(this.TraD);
             this.valoresTra.Controls.Add(this.label3);
             this.valoresTra.Controls.Add(this.label4);
-            this.valoresTra.Controls.Add(this.TraSuperior);
             this.valoresTra.Controls.Add(this.label14);
             this.valoresTra.Controls.Add(this.label15);
             this.valoresTra.Controls.Add(this.label16);
@@ -675,11 +611,11 @@
             // 
             // valoresBe
             // 
+            this.valoresBe.Controls.Add(this.BeSuperior);
+            this.valoresBe.Controls.Add(this.BeInferior);
             this.valoresBe.Controls.Add(this.label20);
             this.valoresBe.Controls.Add(this.label7);
             this.valoresBe.Controls.Add(this.label8);
-            this.valoresBe.Controls.Add(this.BeInferior);
-            this.valoresBe.Controls.Add(this.BeSuperior);
             this.valoresBe.Controls.Add(this.BeA);
             this.valoresBe.Controls.Add(this.BeB);
             this.valoresBe.Controls.Add(this.label23);
@@ -695,10 +631,10 @@
             // 
             // valoresSi
             // 
+            this.valoresSi.Controls.Add(this.SigSuperior);
             this.valoresSi.Controls.Add(this.SigInferior);
             this.valoresSi.Controls.Add(this.label9);
             this.valoresSi.Controls.Add(this.label10);
-            this.valoresSi.Controls.Add(this.SigSuperior);
             this.valoresSi.Controls.Add(this.SigA);
             this.valoresSi.Controls.Add(this.SigB);
             this.valoresSi.Controls.Add(this.label25);
@@ -713,10 +649,10 @@
             // 
             // valoresGa
             // 
+            this.valoresGa.Controls.Add(this.GaSuperior);
+            this.valoresGa.Controls.Add(this.GaInferior);
             this.valoresGa.Controls.Add(this.label5);
             this.valoresGa.Controls.Add(this.label6);
-            this.valoresGa.Controls.Add(this.GaInferior);
-            this.valoresGa.Controls.Add(this.GaSuperior);
             this.valoresGa.Controls.Add(this.GaA);
             this.valoresGa.Controls.Add(this.GaB);
             this.valoresGa.Controls.Add(this.label22);
@@ -762,22 +698,22 @@
             // 
             // Grafico
             // 
-            chartArea31.CursorX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea31.CursorX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea31.CursorY.Interval = 0.1D;
-            chartArea31.CursorY.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea31.CursorY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea31.Name = "ChartArea1";
-            this.Grafico.ChartAreas.Add(chartArea31);
-            legend31.Name = "Legend1";
-            this.Grafico.Legends.Add(legend31);
+            chartArea2.CursorX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea2.CursorX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea2.CursorY.Interval = 0.1D;
+            chartArea2.CursorY.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea2.CursorY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea2.Name = "ChartArea1";
+            this.Grafico.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.Grafico.Legends.Add(legend2);
             this.Grafico.Location = new System.Drawing.Point(7, 7);
             this.Grafico.Name = "Grafico";
-            series31.ChartArea = "ChartArea1";
-            series31.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series31.Legend = "Legend1";
-            series31.Name = "Series1";
-            this.Grafico.Series.Add(series31);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.Grafico.Series.Add(series2);
             this.Grafico.Size = new System.Drawing.Size(782, 478);
             this.Grafico.TabIndex = 0;
             this.Grafico.Text = "chart1";
@@ -817,6 +753,111 @@
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
+            // TriSup
+            // 
+            this.TriSup.Location = new System.Drawing.Point(190, 19);
+            this.TriSup.Name = "TriSup";
+            this.TriSup.Size = new System.Drawing.Size(45, 20);
+            this.TriSup.TabIndex = 42;
+            this.TriSup.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TriSup.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // TriInf
+            // 
+            this.TriInf.Location = new System.Drawing.Point(49, 22);
+            this.TriInf.Name = "TriInf";
+            this.TriInf.Size = new System.Drawing.Size(45, 20);
+            this.TriInf.TabIndex = 43;
+            this.TriInf.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // TraInferior
+            // 
+            this.TraInferior.Location = new System.Drawing.Point(48, 14);
+            this.TraInferior.Name = "TraInferior";
+            this.TraInferior.Size = new System.Drawing.Size(45, 20);
+            this.TraInferior.TabIndex = 44;
+            this.TraInferior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // GaInferior
+            // 
+            this.GaInferior.Location = new System.Drawing.Point(49, 28);
+            this.GaInferior.Name = "GaInferior";
+            this.GaInferior.Size = new System.Drawing.Size(45, 20);
+            this.GaInferior.TabIndex = 46;
+            this.GaInferior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // BeInferior
+            // 
+            this.BeInferior.Location = new System.Drawing.Point(48, 22);
+            this.BeInferior.Name = "BeInferior";
+            this.BeInferior.Size = new System.Drawing.Size(45, 20);
+            this.BeInferior.TabIndex = 52;
+            this.BeInferior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // SigInferior
+            // 
+            this.SigInferior.Location = new System.Drawing.Point(48, 16);
+            this.SigInferior.Name = "SigInferior";
+            this.SigInferior.Size = new System.Drawing.Size(45, 20);
+            this.SigInferior.TabIndex = 52;
+            this.SigInferior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // TraSuperior
+            // 
+            this.TraSuperior.Location = new System.Drawing.Point(189, 14);
+            this.TraSuperior.Name = "TraSuperior";
+            this.TraSuperior.Size = new System.Drawing.Size(45, 20);
+            this.TraSuperior.TabIndex = 44;
+            this.TraSuperior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TraSuperior.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // GaSuperior
+            // 
+            this.GaSuperior.Location = new System.Drawing.Point(190, 28);
+            this.GaSuperior.Name = "GaSuperior";
+            this.GaSuperior.Size = new System.Drawing.Size(45, 20);
+            this.GaSuperior.TabIndex = 44;
+            this.GaSuperior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.GaSuperior.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // BeSuperior
+            // 
+            this.BeSuperior.Location = new System.Drawing.Point(189, 22);
+            this.BeSuperior.Name = "BeSuperior";
+            this.BeSuperior.Size = new System.Drawing.Size(45, 20);
+            this.BeSuperior.TabIndex = 69;
+            this.BeSuperior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.BeSuperior.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // SigSuperior
+            // 
+            this.SigSuperior.Location = new System.Drawing.Point(189, 17);
+            this.SigSuperior.Name = "SigSuperior";
+            this.SigSuperior.Size = new System.Drawing.Size(45, 20);
+            this.SigSuperior.TabIndex = 69;
+            this.SigSuperior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.SigSuperior.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -854,6 +895,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.Grafico)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TriSup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TriInf)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TraInferior)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GaInferior)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BeInferior)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SigInferior)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TraSuperior)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GaSuperior)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BeSuperior)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SigSuperior)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -883,16 +934,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox TriInferior;
-        private System.Windows.Forms.TextBox TriSuperior;
-        private System.Windows.Forms.TextBox TraInferior;
-        private System.Windows.Forms.TextBox TraSuperior;
-        private System.Windows.Forms.TextBox GaInferior;
-        private System.Windows.Forms.TextBox GaSuperior;
-        private System.Windows.Forms.TextBox BeInferior;
-        private System.Windows.Forms.TextBox BeSuperior;
-        private System.Windows.Forms.TextBox SigInferior;
-        private System.Windows.Forms.TextBox SigSuperior;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
@@ -928,6 +969,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         public System.Windows.Forms.DataVisualization.Charting.Chart Grafico;
         public System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.NumericUpDown TriSup;
+        private System.Windows.Forms.NumericUpDown TriInf;
+        private System.Windows.Forms.NumericUpDown TraSuperior;
+        private System.Windows.Forms.NumericUpDown TraInferior;
+        private System.Windows.Forms.NumericUpDown BeSuperior;
+        private System.Windows.Forms.NumericUpDown BeInferior;
+        private System.Windows.Forms.NumericUpDown SigSuperior;
+        private System.Windows.Forms.NumericUpDown SigInferior;
+        private System.Windows.Forms.NumericUpDown GaSuperior;
+        private System.Windows.Forms.NumericUpDown GaInferior;
     }
 }
 

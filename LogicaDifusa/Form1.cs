@@ -95,27 +95,27 @@ namespace LogicaDifusa
             dataGridView1.Rows.Clear();
             if (triangular.Checked == true)
             {
-                Triangular funtri = Triangular.CREATE(int.Parse(TriInferior.Text), int.Parse(TriSuperior.Text), Convert.ToDouble(TriA.Text), Convert.ToDouble(TriB.Text), Convert.ToDouble(TriC.Text));
+                Triangular funtri = Triangular.CREATE(Convert.ToInt32(TriInf.Value), Convert.ToInt32(TriSup.Value), Convert.ToDouble(TriA.Text), Convert.ToDouble(TriB.Text), Convert.ToDouble(TriC.Text));
                 funtri.graficar();
             }
             if (trapezoidal.Checked == true)
             {
-                Trapezoidal funtra = Trapezoidal.CREATE(int.Parse(TraInferior.Text), int.Parse(TraSuperior.Text), Convert.ToDouble(TraA.Text), Convert.ToDouble(TraB.Text), Convert.ToDouble(TraC.Text), Convert.ToDouble(TraD.Text));
+                Trapezoidal funtra = Trapezoidal.CREATE(Convert.ToInt32(TraInferior.Value), Convert.ToInt32(TraSuperior.Value), Convert.ToDouble(TraA.Text), Convert.ToDouble(TraB.Text), Convert.ToDouble(TraC.Text), Convert.ToDouble(TraD.Text));
                 funtra.graficar();
             }
             if (gaussiana.Checked == true)
             {
-                Gaussiana funga = Gaussiana.CREATE(int.Parse(GaInferior.Text), int.Parse(GaSuperior.Text), Convert.ToDouble(GaA.Text), Convert.ToDouble(GaB.Text));
+                Gaussiana funga = Gaussiana.CREATE(Convert.ToInt32(GaInferior.Value), Convert.ToInt32(GaSuperior.Value), Convert.ToDouble(GaA.Text), Convert.ToDouble(GaB.Text));
                 funga.graficar();
             }
             if (bell.Checked == true)
             {
-                Bell funbe = Bell.CREATE(int.Parse(BeInferior.Text), int.Parse(BeSuperior.Text), Convert.ToDouble(BeA.Text), Convert.ToDouble(BeB.Text), Convert.ToDouble(BeC.Text));
+                Bell funbe = Bell.CREATE(Convert.ToInt32(BeInferior.Value), Convert.ToInt32(BeSuperior.Value), Convert.ToDouble(BeA.Text), Convert.ToDouble(BeB.Text), Convert.ToDouble(BeC.Text));
                 funbe.graficar();
             }
             if (sigmoide.Checked == true)
             {
-                Sigmoide funsig = Sigmoide.CREATE(int.Parse(SigInferior.Text), int.Parse(SigSuperior.Text), Convert.ToDouble(SigA.Text), Convert.ToDouble(SigB.Text));
+                Sigmoide funsig = Sigmoide.CREATE(Convert.ToInt32(SigInferior.Value), Convert.ToInt32(SigSuperior.Value), Convert.ToDouble(SigA.Text), Convert.ToDouble(SigB.Text));
                 funsig.graficar();
             }
 
@@ -129,6 +129,7 @@ namespace LogicaDifusa
         private void TriA_TextChanged(object sender, EventArgs e)
         {
             validarvacio(TriA);
+            
         }
 
         private void validarvacio(TextBox cuadro)
@@ -156,7 +157,7 @@ namespace LogicaDifusa
         private void descartarletra(KeyPressEventArgs e)
         {
 
-            if (Char.IsDigit(e.KeyChar))
+            if (Char.IsDigit(e.KeyChar) || Char.IsPunctuation(e.KeyChar))
             {
                 e.Handled = false;
             }
@@ -289,6 +290,14 @@ namespace LogicaDifusa
         private void SigB_TextChanged(object sender, EventArgs e)
         {
             validarvacio(SigB);
+        }
+
+        private void TriA_Leave(object sender, EventArgs e)
+        {
+            if (int.Parse(TriA.Text) > int.Parse(TriB.Text))
+            {
+                TriA.Text = "0";
+            }
         }
     }
 }
