@@ -294,9 +294,25 @@ namespace LogicaDifusa
 
         private void TriA_Leave(object sender, EventArgs e)
         {
-            if (int.Parse(TriA.Text) > int.Parse(TriB.Text))
+            if (int.Parse(TriA.Text) > int.Parse(TriB.Text) || int.Parse(TriA.Text)<0)
             {
                 TriA.Text = "0";
+            }
+        }
+
+        private void TriB_Leave(object sender, EventArgs e)
+        {
+            if (int.Parse(TriB.Text) < int.Parse(TriA.Text) || int.Parse(TriB.Text)> int.Parse(TriC.Text))
+            {
+                TriB.Text = (int.Parse(TriA.Text)+1).ToString();
+            }
+        }
+
+        private void TriC_Leave(object sender, EventArgs e)
+        {
+            if (int.Parse(TriC.Text) < int.Parse(TriB.Text) || int.Parse(TriC.Text) > 100)
+            {
+                TriC.Text = "100";
             }
         }
     }

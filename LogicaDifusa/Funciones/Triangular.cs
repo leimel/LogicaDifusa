@@ -35,6 +35,7 @@ namespace LogicaDifusa.Funciones
         public void graficar()
         {
             Form1 form = Form1.getInstance();
+            form.Grafico.Series[0].Color= System.Drawing.Color.Red ;
             for (int x = limInferior; x <= limSuperior; ++x)
             {
                 if (x <= a || x > c)

@@ -34,6 +34,8 @@ namespace LogicaDifusa.Funciones
         public void graficar()
         {
             Form1 form = Form1.getInstance();
+            form.Grafico.Series[0].Color = System.Drawing.Color.DarkOrange;
+
             for (int x = limInferior; x <= limSuperior; ++x)
             {
                 form.Grafico.Series[0].Points.AddXY(x, 1/(1+(Math.Exp(-a*(x-b)))));

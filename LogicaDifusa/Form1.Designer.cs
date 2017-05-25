@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.triangular = new System.Windows.Forms.CheckBox();
             this.trapezoidal = new System.Windows.Forms.CheckBox();
             this.gaussiana = new System.Windows.Forms.CheckBox();
@@ -76,10 +76,20 @@
             this.SigA = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.valoresTri = new System.Windows.Forms.GroupBox();
+            this.TriInf = new System.Windows.Forms.NumericUpDown();
+            this.TriSup = new System.Windows.Forms.NumericUpDown();
             this.valoresTra = new System.Windows.Forms.GroupBox();
+            this.TraSuperior = new System.Windows.Forms.NumericUpDown();
+            this.TraInferior = new System.Windows.Forms.NumericUpDown();
             this.valoresBe = new System.Windows.Forms.GroupBox();
+            this.BeSuperior = new System.Windows.Forms.NumericUpDown();
+            this.BeInferior = new System.Windows.Forms.NumericUpDown();
             this.valoresSi = new System.Windows.Forms.GroupBox();
+            this.SigSuperior = new System.Windows.Forms.NumericUpDown();
+            this.SigInferior = new System.Windows.Forms.NumericUpDown();
             this.valoresGa = new System.Windows.Forms.GroupBox();
+            this.GaSuperior = new System.Windows.Forms.NumericUpDown();
+            this.GaInferior = new System.Windows.Forms.NumericUpDown();
             this.graficar = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -88,36 +98,26 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TriSup = new System.Windows.Forms.NumericUpDown();
-            this.TriInf = new System.Windows.Forms.NumericUpDown();
-            this.TraInferior = new System.Windows.Forms.NumericUpDown();
-            this.GaInferior = new System.Windows.Forms.NumericUpDown();
-            this.BeInferior = new System.Windows.Forms.NumericUpDown();
-            this.SigInferior = new System.Windows.Forms.NumericUpDown();
-            this.TraSuperior = new System.Windows.Forms.NumericUpDown();
-            this.GaSuperior = new System.Windows.Forms.NumericUpDown();
-            this.BeSuperior = new System.Windows.Forms.NumericUpDown();
-            this.SigSuperior = new System.Windows.Forms.NumericUpDown();
             this.valoresTri.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TriInf)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TriSup)).BeginInit();
             this.valoresTra.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TraSuperior)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TraInferior)).BeginInit();
             this.valoresBe.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BeSuperior)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BeInferior)).BeginInit();
             this.valoresSi.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SigSuperior)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SigInferior)).BeginInit();
             this.valoresGa.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GaSuperior)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GaInferior)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grafico)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TriSup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TriInf)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TraInferior)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GaInferior)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BeInferior)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SigInferior)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TraSuperior)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GaSuperior)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BeSuperior)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SigSuperior)).BeginInit();
             this.SuspendLayout();
             // 
             // triangular
@@ -199,10 +199,11 @@
             this.TriB.Name = "TriB";
             this.TriB.Size = new System.Drawing.Size(42, 20);
             this.TriB.TabIndex = 6;
-            this.TriB.Text = "0";
+            this.TriB.Text = "50";
             this.TriB.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.TriB.TextChanged += new System.EventHandler(this.TriB_TextChanged);
             this.TriB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TriB_KeyPress);
+            this.TriB.Leave += new System.EventHandler(this.TriB_Leave);
             // 
             // TriC
             // 
@@ -210,10 +211,11 @@
             this.TriC.Name = "TriC";
             this.TriC.Size = new System.Drawing.Size(42, 20);
             this.TriC.TabIndex = 7;
-            this.TriC.Text = "0";
+            this.TriC.Text = "100";
             this.TriC.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.TriC.TextChanged += new System.EventHandler(this.TriC_TextChanged);
             this.TriC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TriC_KeyPress);
+            this.TriC.Leave += new System.EventHandler(this.TriC_Leave);
             // 
             // TraA
             // 
@@ -587,6 +589,27 @@
             this.valoresTri.Text = "Valores";
             this.valoresTri.Visible = false;
             // 
+            // TriInf
+            // 
+            this.TriInf.Location = new System.Drawing.Point(49, 22);
+            this.TriInf.Name = "TriInf";
+            this.TriInf.Size = new System.Drawing.Size(45, 20);
+            this.TriInf.TabIndex = 43;
+            this.TriInf.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // TriSup
+            // 
+            this.TriSup.Location = new System.Drawing.Point(190, 19);
+            this.TriSup.Name = "TriSup";
+            this.TriSup.Size = new System.Drawing.Size(45, 20);
+            this.TriSup.TabIndex = 42;
+            this.TriSup.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TriSup.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
             // valoresTra
             // 
             this.valoresTra.Controls.Add(this.TraSuperior);
@@ -609,6 +632,27 @@
             this.valoresTra.Text = "Valores";
             this.valoresTra.Visible = false;
             // 
+            // TraSuperior
+            // 
+            this.TraSuperior.Location = new System.Drawing.Point(189, 14);
+            this.TraSuperior.Name = "TraSuperior";
+            this.TraSuperior.Size = new System.Drawing.Size(45, 20);
+            this.TraSuperior.TabIndex = 44;
+            this.TraSuperior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TraSuperior.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // TraInferior
+            // 
+            this.TraInferior.Location = new System.Drawing.Point(48, 14);
+            this.TraInferior.Name = "TraInferior";
+            this.TraInferior.Size = new System.Drawing.Size(45, 20);
+            this.TraInferior.TabIndex = 44;
+            this.TraInferior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // valoresBe
             // 
             this.valoresBe.Controls.Add(this.BeSuperior);
@@ -629,6 +673,27 @@
             this.valoresBe.Text = "Valores";
             this.valoresBe.Visible = false;
             // 
+            // BeSuperior
+            // 
+            this.BeSuperior.Location = new System.Drawing.Point(189, 22);
+            this.BeSuperior.Name = "BeSuperior";
+            this.BeSuperior.Size = new System.Drawing.Size(45, 20);
+            this.BeSuperior.TabIndex = 69;
+            this.BeSuperior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.BeSuperior.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // BeInferior
+            // 
+            this.BeInferior.Location = new System.Drawing.Point(48, 22);
+            this.BeInferior.Name = "BeInferior";
+            this.BeInferior.Size = new System.Drawing.Size(45, 20);
+            this.BeInferior.TabIndex = 52;
+            this.BeInferior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // valoresSi
             // 
             this.valoresSi.Controls.Add(this.SigSuperior);
@@ -647,6 +712,27 @@
             this.valoresSi.Text = "Valores";
             this.valoresSi.Visible = false;
             // 
+            // SigSuperior
+            // 
+            this.SigSuperior.Location = new System.Drawing.Point(189, 17);
+            this.SigSuperior.Name = "SigSuperior";
+            this.SigSuperior.Size = new System.Drawing.Size(45, 20);
+            this.SigSuperior.TabIndex = 69;
+            this.SigSuperior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.SigSuperior.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // SigInferior
+            // 
+            this.SigInferior.Location = new System.Drawing.Point(48, 16);
+            this.SigInferior.Name = "SigInferior";
+            this.SigInferior.Size = new System.Drawing.Size(45, 20);
+            this.SigInferior.TabIndex = 52;
+            this.SigInferior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // valoresGa
             // 
             this.valoresGa.Controls.Add(this.GaSuperior);
@@ -664,6 +750,27 @@
             this.valoresGa.TabStop = false;
             this.valoresGa.Text = "Valores";
             this.valoresGa.Visible = false;
+            // 
+            // GaSuperior
+            // 
+            this.GaSuperior.Location = new System.Drawing.Point(190, 28);
+            this.GaSuperior.Name = "GaSuperior";
+            this.GaSuperior.Size = new System.Drawing.Size(45, 20);
+            this.GaSuperior.TabIndex = 44;
+            this.GaSuperior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.GaSuperior.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // GaInferior
+            // 
+            this.GaInferior.Location = new System.Drawing.Point(49, 28);
+            this.GaInferior.Name = "GaInferior";
+            this.GaInferior.Size = new System.Drawing.Size(45, 20);
+            this.GaInferior.TabIndex = 46;
+            this.GaInferior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // graficar
             // 
@@ -698,22 +805,23 @@
             // 
             // Grafico
             // 
-            chartArea2.CursorX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea2.CursorX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea2.CursorY.Interval = 0.1D;
-            chartArea2.CursorY.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea2.CursorY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea2.Name = "ChartArea1";
-            this.Grafico.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.Grafico.Legends.Add(legend2);
+            chartArea1.BackColor = System.Drawing.Color.Snow;
+            chartArea1.CursorX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea1.CursorX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea1.CursorY.Interval = 0.1D;
+            chartArea1.CursorY.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea1.CursorY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea1.Name = "ChartArea1";
+            this.Grafico.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.Grafico.Legends.Add(legend1);
             this.Grafico.Location = new System.Drawing.Point(7, 7);
             this.Grafico.Name = "Grafico";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.Grafico.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.Grafico.Series.Add(series1);
             this.Grafico.Size = new System.Drawing.Size(782, 478);
             this.Grafico.TabIndex = 0;
             this.Grafico.Text = "chart1";
@@ -753,111 +861,6 @@
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
-            // TriSup
-            // 
-            this.TriSup.Location = new System.Drawing.Point(190, 19);
-            this.TriSup.Name = "TriSup";
-            this.TriSup.Size = new System.Drawing.Size(45, 20);
-            this.TriSup.TabIndex = 42;
-            this.TriSup.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TriSup.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            // 
-            // TriInf
-            // 
-            this.TriInf.Location = new System.Drawing.Point(49, 22);
-            this.TriInf.Name = "TriInf";
-            this.TriInf.Size = new System.Drawing.Size(45, 20);
-            this.TriInf.TabIndex = 43;
-            this.TriInf.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // TraInferior
-            // 
-            this.TraInferior.Location = new System.Drawing.Point(48, 14);
-            this.TraInferior.Name = "TraInferior";
-            this.TraInferior.Size = new System.Drawing.Size(45, 20);
-            this.TraInferior.TabIndex = 44;
-            this.TraInferior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // GaInferior
-            // 
-            this.GaInferior.Location = new System.Drawing.Point(49, 28);
-            this.GaInferior.Name = "GaInferior";
-            this.GaInferior.Size = new System.Drawing.Size(45, 20);
-            this.GaInferior.TabIndex = 46;
-            this.GaInferior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // BeInferior
-            // 
-            this.BeInferior.Location = new System.Drawing.Point(48, 22);
-            this.BeInferior.Name = "BeInferior";
-            this.BeInferior.Size = new System.Drawing.Size(45, 20);
-            this.BeInferior.TabIndex = 52;
-            this.BeInferior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // SigInferior
-            // 
-            this.SigInferior.Location = new System.Drawing.Point(48, 16);
-            this.SigInferior.Name = "SigInferior";
-            this.SigInferior.Size = new System.Drawing.Size(45, 20);
-            this.SigInferior.TabIndex = 52;
-            this.SigInferior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // TraSuperior
-            // 
-            this.TraSuperior.Location = new System.Drawing.Point(189, 14);
-            this.TraSuperior.Name = "TraSuperior";
-            this.TraSuperior.Size = new System.Drawing.Size(45, 20);
-            this.TraSuperior.TabIndex = 44;
-            this.TraSuperior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TraSuperior.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            // 
-            // GaSuperior
-            // 
-            this.GaSuperior.Location = new System.Drawing.Point(190, 28);
-            this.GaSuperior.Name = "GaSuperior";
-            this.GaSuperior.Size = new System.Drawing.Size(45, 20);
-            this.GaSuperior.TabIndex = 44;
-            this.GaSuperior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.GaSuperior.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            // 
-            // BeSuperior
-            // 
-            this.BeSuperior.Location = new System.Drawing.Point(189, 22);
-            this.BeSuperior.Name = "BeSuperior";
-            this.BeSuperior.Size = new System.Drawing.Size(45, 20);
-            this.BeSuperior.TabIndex = 69;
-            this.BeSuperior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.BeSuperior.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            // 
-            // SigSuperior
-            // 
-            this.SigSuperior.Location = new System.Drawing.Point(189, 17);
-            this.SigSuperior.Name = "SigSuperior";
-            this.SigSuperior.Size = new System.Drawing.Size(45, 20);
-            this.SigSuperior.TabIndex = 69;
-            this.SigSuperior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.SigSuperior.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -882,29 +885,29 @@
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.valoresTri.ResumeLayout(false);
             this.valoresTri.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TriInf)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TriSup)).EndInit();
             this.valoresTra.ResumeLayout(false);
             this.valoresTra.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TraSuperior)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TraInferior)).EndInit();
             this.valoresBe.ResumeLayout(false);
             this.valoresBe.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BeSuperior)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BeInferior)).EndInit();
             this.valoresSi.ResumeLayout(false);
             this.valoresSi.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SigSuperior)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SigInferior)).EndInit();
             this.valoresGa.ResumeLayout(false);
             this.valoresGa.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GaSuperior)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GaInferior)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Grafico)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TriSup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TriInf)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TraInferior)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GaInferior)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BeInferior)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SigInferior)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TraSuperior)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GaSuperior)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BeSuperior)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SigSuperior)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
