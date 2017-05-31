@@ -8,40 +8,32 @@ namespace LogicaDifusa.Funciones
 {
     class Bell
     {
-
-        private int limInferior { get; set; }
         private int limSuperior { get; set; }
         private double a { get; set; }
         private double b { get; set; }
         private double c { get; set; }
 
-        private Bell(int lin, int lsup, double a, double b, double c)
+        public Bell()
         {
-            this.limInferior = lin;
-            this.limSuperior = lsup;
+           
+        }
+        public void asignar(int limite, double a, double b, double c)
+        {
+            this.limSuperior = limite;
             this.a = a;
             this.b = b;
             this.c = c;
         }
-        public static Bell CREATE(int lin, int lsup, double a, double b, double c)
-        {
-            if (lin >= 0 && lsup <= 100 && lin < lsup && a < 0)
-            {
-                return new Bell(lin, lsup, a, b, c);
-            }
-            return null;
-        }
 
-
-        public void graficar()
+        public int graficar(int limInferior)
         {
             Form1 form = Form1.getInstance();
-            form.Grafico.Series[0].Color = System.Drawing.Color.Brown;
             for (int x = limInferior; x <= limSuperior; ++x)
             {
-                form.Grafico.Series[0].Points.AddXY(x,1/(1+(Math.Abs((x-c)/a)*2*b)));
+                form.Grafico.Series[3].Points.AddXY(x,1/(1+(Math.Abs((x-c)/a)*2*b)));
                 form.dataGridView1.Rows.Add(x, 1 / (1 + (Math.Abs((x - c) / a) * 2 * b)));
             }
+            return limSuperior;
         }
     }
 }

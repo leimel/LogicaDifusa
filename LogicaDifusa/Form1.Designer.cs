@@ -31,6 +31,10 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.triangular = new System.Windows.Forms.CheckBox();
             this.trapezoidal = new System.Windows.Forms.CheckBox();
             this.gaussiana = new System.Windows.Forms.CheckBox();
@@ -93,6 +97,7 @@
             this.graficar = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.Lblxy = new System.Windows.Forms.Label();
             this.Grafico = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -227,6 +232,7 @@
             this.TraA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.TraA.TextChanged += new System.EventHandler(this.TraA_TextChanged);
             this.TraA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TraA_KeyPress);
+            this.TraA.Leave += new System.EventHandler(this.TraA_Leave);
             // 
             // TraB
             // 
@@ -234,10 +240,11 @@
             this.TraB.Name = "TraB";
             this.TraB.Size = new System.Drawing.Size(42, 20);
             this.TraB.TabIndex = 9;
-            this.TraB.Text = "0";
+            this.TraB.Text = "30";
             this.TraB.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.TraB.TextChanged += new System.EventHandler(this.TraB_TextChanged);
             this.TraB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TraB_KeyPress);
+            this.TraB.Leave += new System.EventHandler(this.TraB_Leave);
             // 
             // TraC
             // 
@@ -245,10 +252,11 @@
             this.TraC.Name = "TraC";
             this.TraC.Size = new System.Drawing.Size(42, 20);
             this.TraC.TabIndex = 10;
-            this.TraC.Text = "0";
+            this.TraC.Text = "60";
             this.TraC.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.TraC.TextChanged += new System.EventHandler(this.c_TextChanged);
             this.TraC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TraC_KeyPress);
+            this.TraC.Leave += new System.EventHandler(this.TraC_Leave);
             // 
             // TraD
             // 
@@ -256,10 +264,11 @@
             this.TraD.Name = "TraD";
             this.TraD.Size = new System.Drawing.Size(40, 20);
             this.TraD.TabIndex = 11;
-            this.TraD.Text = "0";
+            this.TraD.Text = "100";
             this.TraD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.TraD.TextChanged += new System.EventHandler(this.TraD_TextChanged);
             this.TraD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TraD_KeyPress);
+            this.TraD.Leave += new System.EventHandler(this.TraD_Leave);
             // 
             // label1
             // 
@@ -278,7 +287,6 @@
             this.label2.Size = new System.Drawing.Size(46, 13);
             this.label2.TabIndex = 20;
             this.label2.Text = "Superior";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -324,7 +332,6 @@
             this.label7.Size = new System.Drawing.Size(39, 13);
             this.label7.TabIndex = 25;
             this.label7.Text = "Inferior";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
@@ -334,7 +341,6 @@
             this.label8.Size = new System.Drawing.Size(46, 13);
             this.label8.TabIndex = 26;
             this.label8.Text = "Superior";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
@@ -441,10 +447,11 @@
             this.GaB.Name = "GaB";
             this.GaB.Size = new System.Drawing.Size(42, 20);
             this.GaB.TabIndex = 49;
-            this.GaB.Text = "0";
+            this.GaB.Text = "1";
             this.GaB.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.GaB.TextChanged += new System.EventHandler(this.GaB_TextChanged);
             this.GaB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.GaB_KeyPress);
+            this.GaB.Leave += new System.EventHandler(this.GaB_Leave);
             // 
             // GaA
             // 
@@ -513,10 +520,11 @@
             this.BeA.Size = new System.Drawing.Size(43, 20);
             this.BeA.TabIndex = 52;
             this.BeA.Tag = "";
-            this.BeA.Text = "0";
+            this.BeA.Text = "1";
             this.BeA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.BeA.TextChanged += new System.EventHandler(this.BeA_TextChanged);
             this.BeA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BeA_KeyPress);
+            this.BeA.Leave += new System.EventHandler(this.BeA_Leave);
             // 
             // label25
             // 
@@ -526,7 +534,6 @@
             this.label25.Size = new System.Drawing.Size(16, 13);
             this.label25.TabIndex = 61;
             this.label25.Text = "b:";
-            this.label25.Click += new System.EventHandler(this.label25_Click);
             // 
             // label26
             // 
@@ -592,14 +599,25 @@
             // TriInf
             // 
             this.TriInf.Location = new System.Drawing.Point(49, 22);
+            this.TriInf.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
             this.TriInf.Name = "TriInf";
             this.TriInf.Size = new System.Drawing.Size(45, 20);
             this.TriInf.TabIndex = 43;
             this.TriInf.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TriInf.Leave += new System.EventHandler(this.TriInf_Leave);
             // 
             // TriSup
             // 
             this.TriSup.Location = new System.Drawing.Point(190, 19);
+            this.TriSup.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.TriSup.Name = "TriSup";
             this.TriSup.Size = new System.Drawing.Size(45, 20);
             this.TriSup.TabIndex = 42;
@@ -609,6 +627,7 @@
             0,
             0,
             0});
+            this.TriSup.Leave += new System.EventHandler(this.TriSup_Leave);
             // 
             // valoresTra
             // 
@@ -635,6 +654,11 @@
             // TraSuperior
             // 
             this.TraSuperior.Location = new System.Drawing.Point(189, 14);
+            this.TraSuperior.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.TraSuperior.Name = "TraSuperior";
             this.TraSuperior.Size = new System.Drawing.Size(45, 20);
             this.TraSuperior.TabIndex = 44;
@@ -644,14 +668,21 @@
             0,
             0,
             0});
+            this.TraSuperior.Leave += new System.EventHandler(this.TraSuperior_Leave);
             // 
             // TraInferior
             // 
             this.TraInferior.Location = new System.Drawing.Point(48, 14);
+            this.TraInferior.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
             this.TraInferior.Name = "TraInferior";
             this.TraInferior.Size = new System.Drawing.Size(45, 20);
             this.TraInferior.TabIndex = 44;
             this.TraInferior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TraInferior.Leave += new System.EventHandler(this.TraInferior_Leave);
             // 
             // valoresBe
             // 
@@ -676,6 +707,11 @@
             // BeSuperior
             // 
             this.BeSuperior.Location = new System.Drawing.Point(189, 22);
+            this.BeSuperior.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.BeSuperior.Name = "BeSuperior";
             this.BeSuperior.Size = new System.Drawing.Size(45, 20);
             this.BeSuperior.TabIndex = 69;
@@ -685,14 +721,21 @@
             0,
             0,
             0});
+            this.BeSuperior.Leave += new System.EventHandler(this.BeSuperior_Leave);
             // 
             // BeInferior
             // 
             this.BeInferior.Location = new System.Drawing.Point(48, 22);
+            this.BeInferior.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
             this.BeInferior.Name = "BeInferior";
             this.BeInferior.Size = new System.Drawing.Size(45, 20);
             this.BeInferior.TabIndex = 52;
             this.BeInferior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.BeInferior.Leave += new System.EventHandler(this.BeInferior_Leave);
             // 
             // valoresSi
             // 
@@ -715,6 +758,11 @@
             // SigSuperior
             // 
             this.SigSuperior.Location = new System.Drawing.Point(189, 17);
+            this.SigSuperior.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.SigSuperior.Name = "SigSuperior";
             this.SigSuperior.Size = new System.Drawing.Size(45, 20);
             this.SigSuperior.TabIndex = 69;
@@ -724,14 +772,21 @@
             0,
             0,
             0});
+            this.SigSuperior.Leave += new System.EventHandler(this.SigSuperior_Leave);
             // 
             // SigInferior
             // 
             this.SigInferior.Location = new System.Drawing.Point(48, 16);
+            this.SigInferior.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
             this.SigInferior.Name = "SigInferior";
             this.SigInferior.Size = new System.Drawing.Size(45, 20);
             this.SigInferior.TabIndex = 52;
             this.SigInferior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.SigInferior.Leave += new System.EventHandler(this.SigInferior_Leave);
             // 
             // valoresGa
             // 
@@ -754,6 +809,11 @@
             // GaSuperior
             // 
             this.GaSuperior.Location = new System.Drawing.Point(190, 28);
+            this.GaSuperior.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.GaSuperior.Name = "GaSuperior";
             this.GaSuperior.Size = new System.Drawing.Size(45, 20);
             this.GaSuperior.TabIndex = 44;
@@ -763,14 +823,21 @@
             0,
             0,
             0});
+            this.GaSuperior.Leave += new System.EventHandler(this.GaSuperior_Leave);
             // 
             // GaInferior
             // 
             this.GaInferior.Location = new System.Drawing.Point(49, 28);
+            this.GaInferior.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
             this.GaInferior.Name = "GaInferior";
             this.GaInferior.Size = new System.Drawing.Size(45, 20);
             this.GaInferior.TabIndex = 46;
             this.GaInferior.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.GaInferior.Leave += new System.EventHandler(this.GaInferior_Leave);
             // 
             // graficar
             // 
@@ -794,6 +861,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.Lblxy);
             this.tabPage1.Controls.Add(this.Grafico);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -803,28 +871,96 @@
             this.tabPage1.Text = "Grafica";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // Lblxy
+            // 
+            this.Lblxy.AutoSize = true;
+            this.Lblxy.Location = new System.Drawing.Point(211, 96);
+            this.Lblxy.Name = "Lblxy";
+            this.Lblxy.Size = new System.Drawing.Size(0, 13);
+            this.Lblxy.TabIndex = 1;
+            this.Lblxy.Visible = false;
+            // 
             // Grafico
             // 
-            chartArea1.BackColor = System.Drawing.Color.Snow;
+            chartArea1.AxisX.Crossing = 0D;
+            chartArea1.AxisX.MajorGrid.Interval = 10D;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            chartArea1.AxisX.Maximum = 100D;
+            chartArea1.AxisX.Minimum = 0D;
+            chartArea1.AxisX.MinorGrid.Interval = 1D;
+            chartArea1.AxisX.MinorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea1.AxisX.MinorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            chartArea1.AxisX.ScrollBar.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.AxisX.ScrollBar.ButtonColor = System.Drawing.SystemColors.GradientActiveCaption;
+            chartArea1.AxisX.ScrollBar.IsPositionedInside = false;
+            chartArea1.AxisX2.MajorGrid.Interval = 0.1D;
+            chartArea1.AxisX2.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            chartArea1.AxisX2.MinorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            chartArea1.AxisY.MajorGrid.Interval = 0.1D;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            chartArea1.AxisY.Maximum = 1D;
+            chartArea1.AxisY.Minimum = 0D;
+            chartArea1.AxisY.MinorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            chartArea1.AxisY.ScrollBar.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.AxisY.ScrollBar.ButtonColor = System.Drawing.SystemColors.GradientActiveCaption;
+            chartArea1.AxisY.ScrollBar.IsPositionedInside = false;
+            chartArea1.BackColor = System.Drawing.Color.Transparent;
             chartArea1.CursorX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
             chartArea1.CursorX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea1.CursorX.IsUserEnabled = true;
+            chartArea1.CursorX.IsUserSelectionEnabled = true;
+            chartArea1.CursorX.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             chartArea1.CursorY.Interval = 0.1D;
             chartArea1.CursorY.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
             chartArea1.CursorY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea1.CursorY.IsUserEnabled = true;
+            chartArea1.CursorY.IsUserSelectionEnabled = true;
+            chartArea1.CursorY.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             chartArea1.Name = "ChartArea1";
             this.Grafico.ChartAreas.Add(chartArea1);
+            this.Grafico.Cursor = System.Windows.Forms.Cursors.Cross;
             legend1.Name = "Legend1";
             this.Grafico.Legends.Add(legend1);
             this.Grafico.Location = new System.Drawing.Point(7, 7);
             this.Grafico.Name = "Grafico";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.IsVisibleInLegend = false;
             series1.Legend = "Legend1";
-            series1.Name = "Series1";
+            series1.Name = "Triangular";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.Color = System.Drawing.Color.Green;
+            series2.IsVisibleInLegend = false;
+            series2.Legend = "Legend1";
+            series2.Name = "Trapezoidal";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series3.Color = System.Drawing.Color.Maroon;
+            series3.IsVisibleInLegend = false;
+            series3.Legend = "Legend1";
+            series3.Name = "Gaussiana";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series4.Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series4.IsVisibleInLegend = false;
+            series4.Legend = "Legend1";
+            series4.Name = "Bell";
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series5.Color = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            series5.IsVisibleInLegend = false;
+            series5.Legend = "Legend1";
+            series5.Name = "Sigmoide";
             this.Grafico.Series.Add(series1);
+            this.Grafico.Series.Add(series2);
+            this.Grafico.Series.Add(series3);
+            this.Grafico.Series.Add(series4);
+            this.Grafico.Series.Add(series5);
             this.Grafico.Size = new System.Drawing.Size(782, 478);
             this.Grafico.TabIndex = 0;
             this.Grafico.Text = "chart1";
+            this.Grafico.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Grafico_MouseMove);
             // 
             // tabPage2
             // 
@@ -882,7 +1018,6 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.valoresTri.ResumeLayout(false);
             this.valoresTri.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TriInf)).EndInit();
@@ -905,6 +1040,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.GaInferior)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grafico)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -982,6 +1118,7 @@
         private System.Windows.Forms.NumericUpDown SigInferior;
         private System.Windows.Forms.NumericUpDown GaSuperior;
         private System.Windows.Forms.NumericUpDown GaInferior;
+        private System.Windows.Forms.Label Lblxy;
     }
 }
 
