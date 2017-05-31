@@ -120,7 +120,7 @@ namespace LogicaDifusa
 
             dataGridView1.Rows.Clear();
             int Graficados = 0;
-            for(int x = 0; x <= 100 || Graficas > Graficados ; x++)
+            for(int x = 0; x <= 100 && Graficas > Graficados ; x++)
             {
                 if (triangular.Checked && Convert.ToInt32(TriInf.Value) <= x && Convert.ToInt32(TriSup.Value)>=x)
                 {
