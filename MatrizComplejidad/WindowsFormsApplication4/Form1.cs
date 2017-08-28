@@ -13,12 +13,12 @@ namespace WindowsFormsApplication4
     public partial class Form1 : Form
     {
         public TextBox[] textos = new TextBox[841];
-        public Label[] labels = new Label[58];
+        public Label[] labels = new Label[59];
         public int nodos = 0;
         public Form1()
         {
             InitializeComponent();
-            int x = 0;
+
             int y = 0;
             for (int i = 0; i < 29; i++)
             {
@@ -52,20 +52,19 @@ namespace WindowsFormsApplication4
                     {
                         textBox.Text = "0";
                         textBox.Enabled = false;
-                       
                     }
-                   
+
                     textBox.Location = new System.Drawing.Point(120 + (i * 42), 58 + (j * 22));
                     textBox.Size = new System.Drawing.Size(40, 20);
                     textBox.Leave += new EventHandler(textbox_leave);
                     textBox.KeyPress += new KeyPressEventHandler(nodo_KeyPress);
                     textBox.Visible = false;
-                    textBox.posicion = x;
+                    textBox.posicion = (i * 29) + j;
                     textBox.col = j;
                     textBox.fila = i;
-                    textos[x++] = textBox;
+                    textos[(i * 29) + j] = textBox;
                     Controls.Add(textBox);
-                    
+
                 }
 
             }
@@ -79,11 +78,11 @@ namespace WindowsFormsApplication4
         private void button1_Click(object sender, EventArgs e)
         {
             nodos = Convert.ToInt32(Nnodos.Text);
-            int x = 0 ,y = 29 ;
+            int y = 29;
             labels[0].Visible = true;
-            for (int i = 0; i <29; i++)
+            for (int i = 0; i < 29; i++)
             {
-                if (i <= Convert.ToInt32(Nnodos.Text))
+                if (i < Convert.ToInt32(Nnodos.Text))
                 {
                     labels[y++].Visible = true;
                 }
@@ -91,23 +90,24 @@ namespace WindowsFormsApplication4
                 {
                     labels[y++].Visible = false;
                 }
+
                 for (int j = 0; j < 29; j++)
                 {
-                    if( j <= Convert.ToInt32(Nnodos.Text) )
+                    if (j < Convert.ToInt32(Nnodos.Text))
                     {
-                        labels[j+1].Visible = true;
+                        labels[j + 1].Visible = true;
                     }
                     else
                     {
                         labels[j + 1].Visible = false;
                     }
-                    if (i<=Convert.ToInt32(Nnodos.Text) && j <= Convert.ToInt32(Nnodos.Text))
+                    if (i < Convert.ToInt32(Nnodos.Text) && j < Convert.ToInt32(Nnodos.Text))
                     {
-                        textos[x++].Visible = true;
+                        textos[(i * 29) + j].Visible = true;
                     }
                     else
                     {
-                        textos[x++].Visible = false;
+                        textos[(i * 29) + j].Visible = false;
                     }
                 }
             }
@@ -116,17 +116,18 @@ namespace WindowsFormsApplication4
         private void textbox_leave(object sender, System.EventArgs e)
         {
             TextBoxA text = sender as TextBoxA;
-            if(String.IsNullOrWhiteSpace(text.Text)){
+            if (String.IsNullOrWhiteSpace(text.Text))
+            {
 
             }
-            else if ((Convert.ToInt32(text.Text) <= -2) || text.Text.Equals("0") )
+            else if ((Convert.ToInt32(text.Text) <= -2) || text.Text.Equals("0"))
             {
                 MessageBox.Show("No se permiten distancias nulas o negativas");
                 text.Text = "1";
             }
-            foreach(TextBoxA reflejo in textos)
+            foreach (TextBoxA reflejo in textos)
             {
-                if(reflejo.fila == text.col && reflejo.col == text.fila)
+                if (reflejo.fila == text.col && reflejo.col == text.fila)
                 {
                     reflejo.Text = text.Text;
                 }
@@ -153,16 +154,16 @@ namespace WindowsFormsApplication4
             {
                 e.Handled = true;
             }
-            
+
         }
-       
+
 
         private void Nnodos_Leave(object sender, EventArgs e)
         {
             if (Convert.ToInt32(Nnodos.Text) > 28 || Convert.ToInt32(Nnodos.Text) < 1)
             {
                 MessageBox.Show("El número debe estar entre 1 - 28");
-                Nnodos.Text = " ";
+                Nnodos.Text = "";
             }
 
         }
@@ -173,14 +174,31 @@ namespace WindowsFormsApplication4
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int[,] matriz = new int[nodos,nodos];
-            for(int i =0; i<nodos;i++)
+            int[,] matriz = new int[nodos, nodos];
+            foreach (TextBoxA ady in textos)
             {
-                for(int j = 0; j < nodos; j++)
+                if (ady.col < nodos && ady.fila < nodos)
                 {
-
+                    if (String.IsNullOrWhiteSpace(ady.Text))
+                    {
+                        ady.Text = "-1";
+                    }
+                    matriz[ady.col, ady.fila] = Convert.ToInt32(ady.Text);
                 }
             }
+            Algoritmo_Busqueda prueba = new Algoritmo_Busqueda(3, matriz);
+            prueba.CorrerDijkstra();
+            Console.WriteLine("La solucion de la ruta mas corta tomando como nodo inicial el NODO 1 es: ");
+            int nodo = 1;
+            foreach (int i in prueba.D)
+            {
+                Console.Write("Distancia minima a nodo " + nodo + " es "); Console.WriteLine(i);
+                nodo++;
+            }
+            Console.WriteLine();
+            Console.WriteLine("Presione la tecla Enter para salir."); Console.Read();
+
         }
     }
 }
+
